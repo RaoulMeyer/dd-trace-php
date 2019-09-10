@@ -14,6 +14,7 @@ use DDTrace\Integrations\Guzzle\GuzzleSandboxedIntegration;
 use DDTrace\Integrations\Laravel\LaravelIntegration;
 use DDTrace\Integrations\Lumen\LumenIntegration;
 use DDTrace\Integrations\Memcached\MemcachedIntegration;
+use DDTrace\Integrations\Memcached\MemcachedSandboxedIntegration;
 use DDTrace\Integrations\Mongo\MongoIntegration;
 use DDTrace\Integrations\Mysqli\MysqliIntegration;
 use DDTrace\Integrations\PDO\PDOIntegration;
@@ -83,6 +84,8 @@ class IntegrationsLoader
                 '\DDTrace\Integrations\Eloquent\EloquentSandboxedIntegration';
             $this->integrations[GuzzleSandboxedIntegration::NAME] =
                 '\DDTrace\Integrations\Guzzle\GuzzleSandboxedIntegration';
+            $this->integrations[MemcachedSandboxedIntegration::NAME] =
+                '\DDTrace\Integrations\Memcached\MemcachedSandboxedIntegration';
             $this->integrations[PDOSandboxedIntegration::NAME] =
                 '\DDTrace\Integrations\PDO\PDOSandboxedIntegration';
         }

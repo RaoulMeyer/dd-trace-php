@@ -8,8 +8,10 @@ use DDTrace\Tests\Common\IntegrationTestCase;
 use DDTrace\Tests\Common\SpanAssertion;
 
 
-final class MemcachedTest extends IntegrationTestCase
+class MemcachedTest extends IntegrationTestCase
 {
+    const IS_SANDBOXED = false;
+
     /**
      * @var \Memcached
      */
@@ -21,6 +23,11 @@ final class MemcachedTest extends IntegrationTestCase
     public static function setUpBeforeClass()
     {
         parent::setUpBeforeClass();
+        if (static::IS_SANDBOXED) {
+            putenv('DD_TRACE_SANDBOX_ENABLED');
+        } else {
+            putenv('DD_TRACE_SANDBOX_ENABLED=false');
+        }
         IntegrationsLoader::load();
     }
 
