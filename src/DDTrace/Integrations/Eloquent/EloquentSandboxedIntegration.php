@@ -51,6 +51,24 @@ class EloquentSandboxedIntegration extends SandboxedIntegration
             $span->resource = get_class($this);
         });
 
+        dd_trace_method('Illuminate\Database\Eloquent\Model', 'destroy', function (SpanData $span) {
+            $span->name = 'eloquent.destroy';
+            $span->type = Type::SQL;
+            $span->resource = get_class($this);
+        });
+
+        dd_trace_method('Illuminate\Database\Eloquent\Model', 'load', function (SpanData $span) {
+            $span->name = 'eloquent.load';
+            $span->type = Type::SQL;
+            $span->resource = get_class($this);
+        });
+
+        dd_trace_method('Illuminate\Database\Eloquent\Model', 'refresh', function (SpanData $span) {
+            $span->name = 'eloquent.load';
+            $span->type = Type::SQL;
+            $span->resource = get_class($this);
+        });
+
         return Integration::LOADED;
     }
 }
