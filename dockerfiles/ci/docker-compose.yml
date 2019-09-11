@@ -128,3 +128,8 @@ services:
   #   build:
   #     <<: *build_base
   #     args: { VERSION: v5_4, VARIANT: asan }
+  mysql_integration:
+    image: 'docker.pkg.github.com/datadog/dd-trace-php/mysql_integration:5.6'
+    build:
+      context: ./
+      dockerfile: Dockerfile_mysql
